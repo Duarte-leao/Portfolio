@@ -3,12 +3,12 @@ const profilePicUrl = "https://avatars.githubusercontent.com/u/84018639?v=4"; //
 const contactLinks = [
     {
         name: "LinkedIn",
-        url: "https://linkedin.com/in/duarte-leao",
+        url: "https://www.linkedin.com/in/duarte-le%C3%A3o-96b329211/",
         icon: "fab fa-linkedin",
     },
     {
         name: "GitHub",
-        url: "https://github.com/duarteleao",
+        url: "https://github.com/Duarte-leao",
         icon: "fab fa-github",
     },
     {
@@ -18,7 +18,7 @@ const contactLinks = [
     },
     {
         name: "Google Scholar",
-        url: "https://scholar.google.com/",
+        url: "https://scholar.google.com/citations?view_op=new_profile&hl=en&authuser=2",
         icon: "fas fa-graduation-cap",
     },
 ];
