@@ -295,6 +295,13 @@ function createNavbar() {
         });
         nav.appendChild(a);
     });
+    // Add CV link to the navigation
+    const cvLink = document.createElement("a");
+    cvLink.href = "./files/CV.pdf";
+    cvLink.textContent = "CV";
+    cvLink.target = "_blank";
+    cvLink.rel = "noopener noreferrer";
+    nav.appendChild(cvLink);
     navbar.appendChild(nav);
     return navbar;
 }
@@ -342,20 +349,10 @@ function createAboutSection() {
         newsItem.appendChild(newsText);
         newsSection.appendChild(newsItem);
     });
-    // CV download button
-    const cvButton = document.createElement("a");
-    cvButton.href = "./files/CV.pdf"; // Link to your CV
-    cvButton.className = "cv-button";
-    cvButton.target = "_blank";
-    const cvIcon = document.createElement("i");
-    cvIcon.className = "fas fa-file-alt"; // Changed from fa-file-download to fa-file-alt
-    cvButton.appendChild(cvIcon);
-    cvButton.appendChild(document.createTextNode(" Open CV"));
     container.appendChild(title);
     container.appendChild(content);
     container.appendChild(researchInterestsSection);
     container.appendChild(newsSection);
-    container.appendChild(cvButton);
     section.appendChild(container);
     return section;
 }
