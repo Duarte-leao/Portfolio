@@ -492,9 +492,16 @@ function createExperienceSection() {
         experienceItem.className = "experience-item";
         const role = document.createElement("h3");
         role.textContent = exp.role;
+        // Use a different approach for setting HTML content
         const orgInfo = document.createElement("div");
         orgInfo.className = "organization";
-        orgInfo.innerHTML = `${exp.organization}, ${exp.location} • ${exp.period}`;
+        // Create a temporary div to handle HTML content
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = `${exp.organization}, ${exp.location} • ${exp.period}`;
+        // Copy the innerHTML to the target element
+        while (tempDiv.firstChild) {
+            orgInfo.appendChild(tempDiv.firstChild);
+        }
         experienceItem.appendChild(role);
         experienceItem.appendChild(orgInfo);
         if (exp.description && exp.description.length > 0) {
@@ -524,9 +531,16 @@ function createEducationSection() {
         educationItem.className = "education-item";
         const degree = document.createElement("h3");
         degree.textContent = edu.degree;
+        // Use the same approach as in createExperienceSection
         const instInfo = document.createElement("div");
         instInfo.className = "institution";
-        instInfo.innerHTML = `${edu.institution}, ${edu.location} • ${edu.period}`;
+        // Create a temporary div to handle HTML content
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = `${edu.institution}, ${edu.location} • ${edu.period}`;
+        // Copy the innerHTML to the target element
+        while (tempDiv.firstChild) {
+            instInfo.appendChild(tempDiv.firstChild);
+        }
         educationItem.appendChild(degree);
         educationItem.appendChild(instInfo);
         if (edu.details && edu.details.length > 0) {
