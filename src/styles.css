@@ -101,6 +101,12 @@ h2 {
   font-weight: 600;
 }
 
+/* Remove all underlines from headings */
+h1, h2, h3, h4, h5, h6 {
+  border-bottom: none !important; /* Using !important to override any other styles */
+  text-decoration: none !important;
+}
+
 .section-content {
   margin-bottom: 2rem;
 }
