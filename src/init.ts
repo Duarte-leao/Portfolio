@@ -92,13 +92,11 @@ const aboutContent = `
 
 const researchInterests: ResearchInterest[] = [
   { name: "Machine Learning" },
+  { name: "Deep Learning" },
   { name: "Computer Vision" },
-  { name: "Natural Language Processing" },
-  { name: "Multi-Modal Models" },
+  { name: "Representation Learning" },
+  { name: "Generative Models" },
   { name: "Explainable AI" },
-  { name: "Efficient Deep Learning" },
-  { name: "Distributed Systems" },
-  { name: "Sensor Fusion" },
 ];
 
 const newsItems: NewsItem[] = [
@@ -379,12 +377,12 @@ function createNavbar() {
     { id: "education", name: "Education" },
     { id: "teaching", name: "Teaching" },
     { id: "contact", name: "Contact" },
-    { id: "cv", name: "CV", external: true, url: "./files/CV.pdf" } // Add CV as part of the sections array
+    { id: "cv", name: "CV", external: true, url: "./files/CV.pdf" }, // Add CV as part of the sections array
   ];
 
   sections.forEach((section) => {
     const a = document.createElement("a");
-    
+
     if (section.external) {
       // For external links like CV
       a.href = section.url as string;
@@ -400,7 +398,7 @@ function createNavbar() {
           ?.scrollIntoView({ behavior: "smooth" });
       });
     }
-    
+
     a.textContent = section.name;
     nav.appendChild(a);
   });
