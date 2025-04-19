@@ -86,7 +86,7 @@ const contactLinks: Link[] = [
 
 const aboutContent = `
   <p>I am a dedicated engineer and researcher with a strong interdisciplinary background, holding a Master's in Electrical and Computer Engineering (specializing in Control, Robotics, and AI) and a Bachelor's in Mechanical Engineering from Instituto Superior Técnico, Lisbon.</p>
-  <p>My Master's thesis, supervised by Professors Daniel Silvestre and Rita Cunha, tackled sensor fusion challenges using distributed and centralized observer designs for non-Gaussian noises. Professionally, I led AI development at Pairwire, a startup focused on optimizing consultants' work, where I designed cutting-edge NLP and GraphRAG solutions to automate consulting reports.</p>
+  <p>My Master's thesis, supervised by Professors <a href="https://www.researchgate.net/profile/Daniel-Silvestre-2" target="_blank">Daniel Silvestre</a> and <a href="https://isr.tecnico.ulisboa.pt/author/ritamariamendesdealmeidacorreiada/" target="_blank">Rita Cunha</a>, tackled sensor fusion challenges using distributed and centralized observer designs for non-Gaussian noises. Professionally, I led AI development at Pairwire, a startup focused on optimizing consultants' work, where I designed cutting-edge NLP and GraphRAG solutions to automate consulting reports.</p>
   <p>My research interests include machine learning, computer vision, natural language processing, and multi-modal models with a focus on developing more efficient and interpretable AI systems.</p>
 `;
 
@@ -123,7 +123,7 @@ const experiences: ExperienceItem[] = [
     location: "Lisbon",
     period: "Jan 2025 — Present",
     description: [
-      "Working on the AI-Radiologist project under Prof. Carlos Santiago and Prof. Catarina Barata.",
+      "Working on the AI-Radiologist project under <a href=\"https://sites.google.com/tecnico.ulisboa.pt/carlossantiago\" target=\"_blank\">Prof. Carlos Santiago</a> and <a href=\"http://users.isr.ist.utl.pt/~cbarata/#/\" target=\"_blank\">Prof. Catarina Barata</a>.",
       "Developing novel prototype-based approaches for training discriminative and generative models.",
       "Investigating methods for learning prototypes as distributions to enhance flexibility and explainability.",
       "Designing techniques to condition generative models on learned prototypical distributions.",
@@ -151,7 +151,7 @@ const education: EducationItem[] = [
     period: "2025 — Present",
     details: [
       "Research focus: Prototype-based learning for enhanced interpretability in medical image analysis",
-      "Advisor: Prof. Carlos Santiago and Prof. Catarina Barata",
+      "Advisor: <a href=\"https://sites.google.com/tecnico.ulisboa.pt/carlossantiago\" target=\"_blank\">Prof. Carlos Santiago</a> and <a href=\"http://users.isr.ist.utl.pt/~cbarata/#/\" target=\"_blank\">Prof. Catarina Barata</a>",
     ],
   },
   {
@@ -162,7 +162,7 @@ const education: EducationItem[] = [
     details: [
       "Specialization: Control, Robotics, and AI",
       "Thesis: 'Distributed and Centralized Observer Design for Non-Gaussian Noises'",
-      "Supervisors: Prof. Daniel Silvestre and Prof. Rita Cunha",
+      "Supervisors: <a href=\"https://www.researchgate.net/profile/Daniel-Silvestre-2\" target=\"_blank\">Prof. Daniel Silvestre</a> and <a href=\"https://isr.tecnico.ulisboa.pt/author/ritamariamendesdealmeidacorreiada/\" target=\"_blank\">Prof. Rita Cunha</a>",
       "GPA: 18.5/20",
     ],
   },
@@ -640,7 +640,7 @@ function createExperienceSection() {
 
       exp.description.forEach((descItem) => {
         const listItem = document.createElement("li");
-        listItem.textContent = descItem;
+        listItem.innerHTML = descItem;
         descriptionList.appendChild(listItem);
       });
 
@@ -685,7 +685,7 @@ function createEducationSection() {
 
       edu.details.forEach((detail) => {
         const listItem = document.createElement("li");
-        listItem.textContent = detail;
+        listItem.innerHTML = detail;
         detailsList.appendChild(listItem);
       });
 
