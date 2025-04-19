@@ -1,5 +1,5 @@
 // Placeholder for profile picture URL - replace with your actual image URL
-const profilePicUrl = "./portfolio image.png"; // Using local portfolio image with proper path
+const profilePicUrl = "./files/portfolio image.png"; // Using local portfolio image with proper path
 const contactLinks = [
     {
         name: "LinkedIn",
@@ -323,7 +323,7 @@ function createAboutSection() {
     });
     // CV download button
     const cvButton = document.createElement("a");
-    cvButton.href = "CV.pdf"; // Link to your CV
+    cvButton.href = "./files/CV.pdf"; // Link to your CV
     cvButton.className = "cv-button";
     cvButton.target = "_blank";
     const cvIcon = document.createElement("i");
