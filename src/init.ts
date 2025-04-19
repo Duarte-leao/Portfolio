@@ -86,7 +86,7 @@ const contactLinks: Link[] = [
 
 const aboutContent = `
   <p>I am a dedicated engineer and researcher with a strong interdisciplinary background, holding a Master's in Electrical and Computer Engineering (specializing in Control, Robotics, and AI) and a Bachelor's in Mechanical Engineering from Instituto Superior Técnico, Lisbon.</p>
-  <p>My Master's thesis, supervised by Professors <a href="https://www.researchgate.net/profile/Daniel-Silvestre-2" target="_blank">Daniel Silvestre</a> and <a href="https://isr.tecnico.ulisboa.pt/author/ritamariamendesdealmeidacorreiada/" target="_blank">Rita Cunha</a>, tackled sensor fusion challenges using distributed and centralized observer designs for non-Gaussian noises. Professionally, I led AI development at Pairwire, a startup focused on optimizing consultants' work, where I designed cutting-edge NLP and GraphRAG solutions to automate consulting reports.</p>
+  <p>My Master's thesis, supervised by Professors <a href="https://www.researchgate.net/profile/Daniel-Silvestre-2" target="_blank">Daniel Silvestre</a> and <a href="https://isr.tecnico.ulisboa.pt/author/ritamariamendesdealmeidacorreiada/" target="_blank">Rita Cunha</a>, tackled sensor fusion challenges using distributed and centralized observer designs for non-Gaussian noises. Professionally, I led AI development at <a href="https://pairwire.co/" target="_blank">Pairwire</a>, a startup focused on optimizing consultants' work, where I designed cutting-edge NLP and GraphRAG solutions to automate consulting reports.</p>
   <p>My research interests include machine learning, computer vision, natural language processing, and multi-modal models with a focus on developing more efficient and interpretable AI systems.</p>
 `;
 
@@ -119,11 +119,12 @@ const newsItems: NewsItem[] = [
 const experiences: ExperienceItem[] = [
   {
     role: "Research Fellow",
-    organization: "Institute for Systems and Robotics (ISR)",
+    organization:
+      '<a href="https://isr.tecnico.ulisboa.pt/" target="_blank">Institute for Systems and Robotics (ISR)</a>',
     location: "Lisbon",
     period: "Jan 2025 — Present",
     description: [
-      "Working on the AI-Radiologist project under <a href=\"https://sites.google.com/tecnico.ulisboa.pt/carlossantiago\" target=\"_blank\">Prof. Carlos Santiago</a> and <a href=\"http://users.isr.ist.utl.pt/~cbarata/#/\" target=\"_blank\">Prof. Catarina Barata</a>.",
+      'Working on the <a href="https://isr.tecnico.ulisboa.pt/projects/integration-of-an-artificial-intelligence-agent-in-radiology-to-assist-in-breast-cancer-diagnosis/" target="_blank">AI-Radiologist</a> project under Prof. <a href="https://sites.google.com/tecnico.ulisboa.pt/carlossantiago" target="_blank">Carlos Santiago</a> and Prof. <a href="http://users.isr.ist.utl.pt/~cbarata/#/" target="_blank">Catarina Barata</a>.',
       "Developing novel prototype-based approaches for training discriminative and generative models.",
       "Investigating methods for learning prototypes as distributions to enhance flexibility and explainability.",
       "Designing techniques to condition generative models on learned prototypical distributions.",
@@ -131,7 +132,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     role: "AI Development Lead",
-    organization: "Pairwire",
+    organization: '<a href="https://pairwire.co/" target="_blank">Pairwire</a>',
     location: "Lisbon",
     period: "May 2024 — Feb 2025",
     description: [
@@ -139,6 +140,32 @@ const experiences: ExperienceItem[] = [
       "Worked extensively with LLMs to automate report generation, designing and implementing advanced NLP pipelines (RAG).",
       "Improved data retrieval and contextual relevance.",
       "Developed and integrated GraphRAG systems for enhanced reasoning capabilities.",
+    ],
+  },
+  {
+    role: "Machine Learning Engineer",
+    organization:
+      '<a href="https://www.gls-portugal.pt/pt/" target="_blank">General Logistics Systems (GLS)</a>',
+    location: "Lisbon",
+    period: "Dec 2023 — Jan 2025",
+    description: [
+      "Contributed to the development of GLS Portugal's and Germany's AI department.",
+      "Worked on an NLP pipeline that incorporated a BERT model to extract the embedding of customer names and used additional deep learning methods to classify customers as either businesses or individuals. The model achieved 91% balanced accuracy.",
+      "Developed an anomaly detection system to predict anomalies in parcel life cycles, using a two-stage model incorporating supervised regression to estimate expected event timings and logistic regression to classify potential claims, achieving 84% prediction accuracy.",
+      "Worked on the development of a general CI/CD infrastructure pipeline for future data science projects",
+    ],
+  },
+  {
+    role: "Graduate Researcher",
+    organization:
+      '<a href="https://welcome.isr.tecnico.ulisboa.pt/" target="_blank">Institute for Systems and Robotics (ISR)</a>',
+    location: "Lisbon",
+    period: "Jan 2022 — Nov 2023",
+    description: [
+      'Worked on the <a href="https://isr.tecnico.ulisboa.pt/projects/forest-fire-prevention-through-uncertainty-minimization-in-surveillance/" target="_blank">FirePuma</a> project under Prof. <a href="https://www.researchgate.net/profile/Daniel-Silvestre-2" target="_blank">Daniel Silvestre</a> supervision.',
+      "Developed a sensor fusion algorithm utilizing the Wasserstein Barycenter approach to integrate data from multiple sources, when the noise is not necessarily Gaussian.",
+      "Implemented a Bayes filter with polynomial approximation of probability density functions to facilitate state estimation for non-Gaussian noises.",
+      "Implemented and integrated Characteristic Function filters in Model Predictive Controls to address pursuer-evader problems, accounting for non-Gaussian random walks of the evader.",
     ],
   },
 ];
@@ -151,30 +178,28 @@ const education: EducationItem[] = [
     period: "2025 — Present",
     details: [
       "Research focus: Prototype-based learning for enhanced interpretability in medical image analysis",
-      "Advisor: <a href=\"https://sites.google.com/tecnico.ulisboa.pt/carlossantiago\" target=\"_blank\">Prof. Carlos Santiago</a> and <a href=\"http://users.isr.ist.utl.pt/~cbarata/#/\" target=\"_blank\">Prof. Catarina Barata</a>",
+      'Advisor: <a href="https://sites.google.com/tecnico.ulisboa.pt/carlossantiago" target="_blank">Prof. Carlos Santiago</a> and <a href="http://users.isr.ist.utl.pt/~cbarata/#/" target="_blank">Prof. Catarina Barata</a>',
     ],
   },
   {
     degree: "MSc in Electrical and Computer Engineering",
-    institution: "Instituto Superior Técnico",
+    institution:
+      '<a href="https://tecnico.ulisboa.pt/pt/" target="_blank">Instituto Superior Técnico</a>',
     location: "Lisbon, Portugal",
     period: "2022 — 2024",
     details: [
       "Specialization: Control, Robotics, and AI",
       "Thesis: 'Distributed and Centralized Observer Design for Non-Gaussian Noises'",
-      "Supervisors: <a href=\"https://www.researchgate.net/profile/Daniel-Silvestre-2\" target=\"_blank\">Prof. Daniel Silvestre</a> and <a href=\"https://isr.tecnico.ulisboa.pt/author/ritamariamendesdealmeidacorreiada/\" target=\"_blank\">Prof. Rita Cunha</a>",
-      "GPA: 18.5/20",
+      'Supervisors: <a href="https://www.researchgate.net/profile/Daniel-Silvestre-2" target="_blank">Prof. Daniel Silvestre</a> and <a href="https://isr.tecnico.ulisboa.pt/author/ritamariamendesdealmeidacorreiada/" target="_blank">Prof. Rita Cunha</a>',
+      "GPA: 18/20",
     ],
   },
   {
     degree: "BSc in Mechanical Engineering",
     institution: "Instituto Superior Técnico",
     location: "Lisbon, Portugal",
-    period: "2019 — 2022",
-    details: [
-      "Focus: Mechanics, Dynamics, and Control Systems",
-      "GPA: 17.2/20",
-    ],
+    period: "2018 — 2021",
+    details: ["Focus: Mechanics, Dynamics, and Control Systems", "GPA: 15/20"],
   },
 ];
 
