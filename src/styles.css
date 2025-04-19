@@ -71,20 +71,28 @@ nav {
   margin: 0 auto;
 }
 
-nav a {
-  color: #b0b0b0;
-  text-decoration: none;
+/* remove the underline on your nav tabs - all states */
+nav a,
+nav a:hover,
+nav a.active {
+  text-decoration: none !important; /* explicitly disable any underline with !important */
   font-size: 0.95rem;
   padding: 0.4rem 0;
-  transition: color 0.2s, border-bottom 0.2s;
-  border-bottom: 2px solid transparent;
   font-weight: 500;
 }
 
-nav a:hover, nav a.active {
+/* Default state for nav links */
+nav a {
+  color: #b0b0b0;
+  transition: color 0.2s, border-bottom 0.2s;
+  border-bottom: 2px solid transparent;
+}
+
+/* Hover and active states - only add the styling that should change */
+nav a:hover,
+nav a.active {
   color: #fff;
   border-bottom: 2px solid #4d9fff;
-  text-decoration: none;      /* Explicitly disable underline on hover */
 }
 
 section {
