@@ -329,7 +329,7 @@ function createAboutSection() {
     const cvIcon = document.createElement("i");
     cvIcon.className = "fas fa-file-download";
     cvButton.appendChild(cvIcon);
-    cvButton.appendChild(document.createTextNode(" Download CV"));
+    cvButton.appendChild(document.createTextNode(" Open CV"));
     container.appendChild(title);
     container.appendChild(content);
     container.appendChild(researchInterestsSection);

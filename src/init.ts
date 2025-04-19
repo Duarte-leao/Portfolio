@@ -1,5 +1,5 @@
 // Placeholder for profile picture URL - replace with your actual image URL
-const profilePicUrl = "portfolio image.png"; // Using local portfolio image
+const profilePicUrl = "./portfolio image.png"; // Using local portfolio image with proper path
 
 interface Link {
   name: string;
@@ -441,7 +441,7 @@ function createAboutSection() {
   const cvIcon = document.createElement("i");
   cvIcon.className = "fas fa-file-download";
   cvButton.appendChild(cvIcon);
-  cvButton.appendChild(document.createTextNode(" Download CV"));
+  cvButton.appendChild(document.createTextNode(" Open CV"));
 
   container.appendChild(title);
   container.appendChild(content);
