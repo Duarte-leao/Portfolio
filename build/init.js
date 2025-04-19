@@ -78,7 +78,7 @@ const experiences = [
     },
     {
         role: "Machine Learning Engineer",
-        organization: '<a href="https://www.gls-portugal.pt/pt/" target="_blank">General Logistics Systems (GLS)</a>',
+        organization: '<a href="https://www.gls-portugal.pt/en/" target="_blank">General Logistics Systems (GLS)</a>',
         location: "Lisbon",
         period: "Dec 2023 — Jan 2025",
         description: [

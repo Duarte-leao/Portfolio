@@ -145,7 +145,7 @@ const experiences: ExperienceItem[] = [
   {
     role: "Machine Learning Engineer",
     organization:
-      '<a href="https://www.gls-portugal.pt/pt/" target="_blank">General Logistics Systems (GLS)</a>',
+      '<a href="https://www.gls-portugal.pt/en/" target="_blank">General Logistics Systems (GLS)</a>',
     location: "Lisbon",
     period: "Dec 2023 — Jan 2025",
     description: [
@@ -656,11 +656,11 @@ function createExperienceSection() {
     // Use a different approach for setting HTML content
     const orgInfo = document.createElement("div");
     orgInfo.className = "organization";
-    
+
     // Create a temporary div to handle HTML content
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = `${exp.organization}, ${exp.location} • ${exp.period}`;
-    
+
     // Copy the innerHTML to the target element
     while (tempDiv.firstChild) {
       orgInfo.appendChild(tempDiv.firstChild);
@@ -710,11 +710,11 @@ function createEducationSection() {
     // Use the same approach as in createExperienceSection
     const instInfo = document.createElement("div");
     instInfo.className = "institution";
-    
+
     // Create a temporary div to handle HTML content
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = `${edu.institution}, ${edu.location} • ${edu.period}`;
-    
+
     // Copy the innerHTML to the target element
     while (tempDiv.firstChild) {
       instInfo.appendChild(tempDiv.firstChild);
