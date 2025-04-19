@@ -1,0 +1,19 @@
+{
+  "name": "web_page",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && cp src/styles.css build/styles.css && cp index.html build/index.html",
+    "serve": "npx http-server build -c-1",
+    "start": "npm run serve",
+    "dev": "npm run build && npm run serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "http-server": "^14.1.1"
+  }
+}
