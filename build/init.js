@@ -282,26 +282,29 @@ function createNavbar() {
         { id: "education", name: "Education" },
         { id: "teaching", name: "Teaching" },
         { id: "contact", name: "Contact" },
+        { id: "cv", name: "CV", external: true, url: "./files/CV.pdf" } // Add CV as part of the sections array
     ];
     sections.forEach((section) => {
         const a = document.createElement("a");
-        a.href = `#${section.id}`;
+        if (section.external) {
+            // For external links like CV
+            a.href = section.url;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+        }
+        else {
+            // For internal section links
+            a.href = `#${section.id}`;
+            a.addEventListener("click", (e) => {
+                var _a;
+                e.preventDefault();
+                (_a = document
+                    .getElementById(section.id)) === null || _a === void 0 ? void 0 : _a.scrollIntoView({ behavior: "smooth" });
+            });
+        }
         a.textContent = section.name;
-        a.addEventListener("click", (e) => {
-            var _a;
-            e.preventDefault();
-            (_a = document
-                .getElementById(section.id)) === null || _a === void 0 ? void 0 : _a.scrollIntoView({ behavior: "smooth" });
-        });
         nav.appendChild(a);
     });
-    // Add CV link to the navigation
-    const cvLink = document.createElement("a");
-    cvLink.href = "./files/CV.pdf";
-    cvLink.textContent = "CV";
-    cvLink.target = "_blank";
-    cvLink.rel = "noopener noreferrer";
-    nav.appendChild(cvLink);
     navbar.appendChild(nav);
     return navbar;
 }
