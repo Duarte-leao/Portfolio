@@ -494,7 +494,7 @@ function createExperienceSection() {
         role.textContent = exp.role;
         const orgInfo = document.createElement("div");
         orgInfo.className = "organization";
-        orgInfo.textContent = `${exp.organization}, ${exp.location} • ${exp.period}`;
+        orgInfo.innerHTML = `${exp.organization}, ${exp.location} • ${exp.period}`;
         experienceItem.appendChild(role);
         experienceItem.appendChild(orgInfo);
         if (exp.description && exp.description.length > 0) {
@@ -526,7 +526,7 @@ function createEducationSection() {
         degree.textContent = edu.degree;
         const instInfo = document.createElement("div");
         instInfo.className = "institution";
-        instInfo.textContent = `${edu.institution}, ${edu.location} • ${edu.period}`;
+        instInfo.innerHTML = `${edu.institution}, ${edu.location} • ${edu.period}`;
         educationItem.appendChild(degree);
         educationItem.appendChild(instInfo);
         if (edu.details && edu.details.length > 0) {
