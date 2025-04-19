@@ -1,5 +1,5 @@
 // Placeholder for profile picture URL - replace with your actual image URL
-const profilePicUrl = "https://avatars.githubusercontent.com/u/84018639?v=4"; // Using GitHub profile pic as placeholder
+const profilePicUrl = "portfolio image.png"; // Using local portfolio image
 
 interface Link {
   name: string;
