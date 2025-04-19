@@ -327,7 +327,7 @@ function createAboutSection() {
     cvButton.className = "cv-button";
     cvButton.target = "_blank";
     const cvIcon = document.createElement("i");
-    cvIcon.className = "fas fa-file-download";
+    cvIcon.className = "fas fa-file-alt"; // Changed from fa-file-download to fa-file-alt
     cvButton.appendChild(cvIcon);
     cvButton.appendChild(document.createTextNode(" Open CV"));
     container.appendChild(title);

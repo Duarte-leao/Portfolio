@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && cp src/styles.css build/styles.css && cp index.html build/index.html && cp build/init.js init.js",
+    "build": "tsc && cp src/styles.css styles.css && cp src/index.html index.html && cp build/init.js init.js",
     "serve": "npx http-server build -c-1",
     "start": "npm run serve",
-    "dev": "npm run build && npm run serve"
+    "dev": "npm run serve && npm run build"
   },
   "keywords": [],
   "author": "",
