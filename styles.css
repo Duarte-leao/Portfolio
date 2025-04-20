@@ -78,11 +78,11 @@ body.light-mode .card {
 /* Hero section */
 .hero-section {
   height: 100vh;
-  width: 100%; /* Use viewport width instead of % */
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute; /* Changed from relative to absolute */
+  position: absolute;
   overflow: hidden;
   background-color: rgba(26,26,26,0.8);
   background-image: 
@@ -91,7 +91,6 @@ body.light-mode .card {
   margin: 0;
   padding: 0;
   left: 0;
-  right: 0;
   top: 0;
 }
 
@@ -107,6 +106,7 @@ body.light-mode .card {
   z-index: 2;
   max-width: 800px;
   padding: 2rem;
+  margin: 0 auto;
 }
 
 .hero-title {
