@@ -80,21 +80,29 @@ body.light-mode .card {
   box-sizing: border-box;
 }
 
-/* Hero section */
+/* Only apply max-width and auto margins to non-hero sections */
+section:not(.hero-section) {
+  padding: 4rem 0;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+
+/* Give the hero its own full-bleed layout */
 .hero-section {
-  position: relative;      /* let it sit in normal flow */
-  width: 100%;             /* span the full width of the page */
-  min-height: 100vh;       /* at least the height of the viewport */
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem;         /* match your .container side-padding */
-  box-sizing: border-box;  /* ensure that padding doesn't bloat it */
+  margin: 0;
+  padding: 0 2rem;
+  box-sizing: border-box;
   background-color: rgba(26,26,26,0.8);
   background-image:
     radial-gradient(circle at 10% 20%, rgba(77, 159, 255, 0.1) 0%, transparent 30%),
     radial-gradient(circle at 90% 80%, rgba(77, 159, 255, 0.1) 0%, transparent 30%);
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .light-mode .hero-section {
