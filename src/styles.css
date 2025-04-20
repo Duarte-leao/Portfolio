@@ -96,13 +96,9 @@ nav a.active {
 }
 
 section {
-  padding: 3rem 0;
+  padding: 2rem 0;
   max-width: 900px;
   margin: 1rem auto 3rem;
-}
-
-section .container h2 {
-  margin-bottom: 1.5rem;
 }
 
 h2 {
@@ -127,9 +123,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Publications styling */
 .publication-item {
   margin-bottom: 1.8rem;
-  background: #2a2a2a;
-  padding: 1rem;
-  border-radius: 8px;
 }
 
 .publication-title {
@@ -189,9 +182,6 @@ li {
 /* Projects */
 .project-item {
   margin-bottom: 1.8rem;
-  background: #2a2a2a;
-  padding: 1rem;
-  border-radius: 8px;
 }
 
 .project-item h3 {
@@ -306,90 +296,6 @@ a:hover {
 
 .skills-list li {
   margin-bottom: 0.8rem;
-}
-
-/* Hero section */
-.hero {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-  position: relative;
-}
-.hero-content h1 {
-  color: #fff;
-  font-size: 3rem;
-  margin: 0;
-}
-.scroll-indicator {
-  font-size: 2rem;
-  color: #bbb;
-  margin-top: 1rem;
-  cursor: pointer;
-  animation: bounce 2s infinite;
-}
-@keyframes bounce {
-  0%,20%,50%,80%,100% { transform: translateY(0); }
-  40% { transform: translateY(10px); }
-  60% { transform: translateY(6px); }
-}
-
-/* Publications & Projects grid */
-#publications .container,
-#projects .container {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-/* Collapsible sections */
-.collapsible {
-  cursor: pointer;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-.collapsible::after {
-  content: '+';
-  float: right;
-}
-.collapsible.open::after {
-  content: '-';
-}
-.collapsible-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-.collapsible.open + .collapsible-content {
-  max-height: 1000px;
-}
-
-/* Light/dark mode */
-body.light-mode {
-  background-color: #fafafa;
-  color: #333;
-}
-body.light-mode .navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-}
-body.light-mode nav a {
-  color: #555;
-}
-body.light-mode nav a:hover,
-body.light-mode nav a.active {
-  color: #111;
-  border-bottom-color: #007acc;
-}
-body.light-mode header,
-body.light-mode .hero {
-  background: #f5f5f5;
-}
-body.light-mode .publication-item,
-body.light-mode .project-item {
-  background: #fff;
-  color: #333;
 }
 
 /* Responsive design */

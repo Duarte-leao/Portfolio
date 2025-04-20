@@ -403,43 +403,8 @@ function createNavbar() {
     nav.appendChild(a);
   });
 
-  // light/dark mode toggle button
-  const themeToggle = document.createElement("button");
-  themeToggle.id = "theme-toggle";
-  themeToggle.textContent = "🌙";
-  themeToggle.title = "Toggle light/dark mode";
-  themeToggle.addEventListener("click", () =>
-    document.body.classList.toggle("light-mode")
-  );
-  nav.appendChild(themeToggle);
-
   navbar.appendChild(nav);
   return navbar;
-}
-
-// Hero/home section
-function createHeroSection() {
-  const section = document.createElement("section");
-  section.id = "hero";
-  section.className = "hero";
-
-  const container = document.createElement("div");
-  container.className = "hero-content";
-
-  const title = document.createElement("h1");
-  title.textContent = "Welcome to Duarte Leão's Portfolio";
-  container.appendChild(title);
-
-  const scrollIndicator = document.createElement("div");
-  scrollIndicator.className = "scroll-indicator";
-  scrollIndicator.innerHTML = "&#x25BC;";
-  scrollIndicator.addEventListener("click", () =>
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
-  );
-  container.appendChild(scrollIndicator);
-
-  section.appendChild(container);
-  return section;
 }
 
 function createAboutSection() {
@@ -675,28 +640,45 @@ function createExperienceSection() {
 
   const title = document.createElement("h2");
   title.textContent = "Experience";
+
   container.appendChild(title);
 
   experiences.forEach((exp) => {
-    // collapsible header for each experience
-    const headerDiv = document.createElement("div");
-    headerDiv.className = "collapsible";
-    headerDiv.innerHTML = `<strong>${exp.role}</strong> — ${exp.organization}, ${exp.location} • ${exp.period}`;
-    container.appendChild(headerDiv);
+    const experienceItem = document.createElement("div");
+    experienceItem.className = "experience-item";
 
-    // collapsible content
-    const contentDiv = document.createElement("div");
-    contentDiv.className = "collapsible-content";
-    const descList = document.createElement("ul");
-    exp.description.forEach((desc) => {
-      const li = document.createElement("li");
-      li.innerHTML = desc;
-      descList.appendChild(li);
-    });
-    contentDiv.appendChild(descList);
-    container.appendChild(contentDiv);
+    const role = document.createElement("h3");
+    role.textContent = exp.role;
 
-    headerDiv.addEventListener("click", () => headerDiv.classList.toggle("open") || contentDiv.classList.toggle("open"));
+    // Use a different approach for setting HTML content
+    const orgInfo = document.createElement("div");
+    orgInfo.className = "organization";
+
+    // Create a temporary div to handle HTML content
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = `${exp.organization}, ${exp.location} • ${exp.period}`;
+
+    // Copy the innerHTML to the target element
+    while (tempDiv.firstChild) {
+      orgInfo.appendChild(tempDiv.firstChild);
+    }
+
+    experienceItem.appendChild(role);
+    experienceItem.appendChild(orgInfo);
+
+    if (exp.description && exp.description.length > 0) {
+      const descriptionList = document.createElement("ul");
+
+      exp.description.forEach((descItem) => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = descItem;
+        descriptionList.appendChild(listItem);
+      });
+
+      experienceItem.appendChild(descriptionList);
+    }
+
+    container.appendChild(experienceItem);
   });
 
   section.appendChild(container);
@@ -766,28 +748,36 @@ function createTeachingSection() {
 
   const title = document.createElement("h2");
   title.textContent = "Teaching";
+
   container.appendChild(title);
 
   teachingExperience.forEach((teaching) => {
-    const headerDiv = document.createElement("div");
-    headerDiv.className = "collapsible";
-    headerDiv.innerHTML = `<strong>${teaching.course}</strong> — ${teaching.role}, ${teaching.institution} • ${teaching.period}`;
-    container.appendChild(headerDiv);
+    const teachingItem = document.createElement("div");
+    teachingItem.className = "experience-item";
 
-    const contentDiv = document.createElement("div");
-    contentDiv.className = "collapsible-content";
-    if (teaching.description) {
-      const descList = document.createElement("ul");
-      teaching.description.forEach((desc) => {
-        const li = document.createElement("li");
-        li.textContent = desc;
-        descList.appendChild(li);
+    const course = document.createElement("h3");
+    course.textContent = teaching.course;
+
+    const roleInfo = document.createElement("div");
+    roleInfo.className = "organization";
+    roleInfo.textContent = `${teaching.role}, ${teaching.institution} • ${teaching.period}`;
+
+    teachingItem.appendChild(course);
+    teachingItem.appendChild(roleInfo);
+
+    if (teaching.description && teaching.description.length > 0) {
+      const descriptionList = document.createElement("ul");
+
+      teaching.description.forEach((descItem) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = descItem;
+        descriptionList.appendChild(listItem);
       });
-      contentDiv.appendChild(descList);
-    }
-    container.appendChild(contentDiv);
 
-    headerDiv.addEventListener("click", () => headerDiv.classList.toggle("open") || contentDiv.classList.toggle("open"));
+      teachingItem.appendChild(descriptionList);
+    }
+
+    container.appendChild(teachingItem);
   });
 
   section.appendChild(container);
@@ -884,7 +874,6 @@ function init() {
 
   rootElement.appendChild(createHeader());
   rootElement.appendChild(createNavbar());
-  rootElement.appendChild(createHeroSection()); // added hero section
   rootElement.appendChild(createAboutSection());
   rootElement.appendChild(createPublicationsSection());
   rootElement.appendChild(createProjectsSection());
