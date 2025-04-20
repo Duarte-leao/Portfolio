@@ -403,8 +403,43 @@ function createNavbar() {
     nav.appendChild(a);
   });
 
+  // light/dark mode toggle button
+  const themeToggle = document.createElement("button");
+  themeToggle.id = "theme-toggle";
+  themeToggle.textContent = "🌙";
+  themeToggle.title = "Toggle light/dark mode";
+  themeToggle.addEventListener("click", () =>
+    document.body.classList.toggle("light-mode")
+  );
+  nav.appendChild(themeToggle);
+
   navbar.appendChild(nav);
   return navbar;
+}
+
+// Hero/home section
+function createHeroSection() {
+  const section = document.createElement("section");
+  section.id = "hero";
+  section.className = "hero";
+
+  const container = document.createElement("div");
+  container.className = "hero-content";
+
+  const title = document.createElement("h1");
+  title.textContent = "Welcome to Duarte Leão's Portfolio";
+  container.appendChild(title);
+
+  const scrollIndicator = document.createElement("div");
+  scrollIndicator.className = "scroll-indicator";
+  scrollIndicator.innerHTML = "&#x25BC;";
+  scrollIndicator.addEventListener("click", () =>
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
+  );
+  container.appendChild(scrollIndicator);
+
+  section.appendChild(container);
+  return section;
 }
 
 function createAboutSection() {
@@ -874,6 +909,7 @@ function init() {
 
   rootElement.appendChild(createHeader());
   rootElement.appendChild(createNavbar());
+  rootElement.appendChild(createHeroSection()); // added hero section
   rootElement.appendChild(createAboutSection());
   rootElement.appendChild(createPublicationsSection());
   rootElement.appendChild(createProjectsSection());
