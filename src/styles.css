@@ -89,15 +89,16 @@ section:not(.hero-section) {
 
 /* Give the hero its own full-bleed layout */
 .hero-section {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0 2rem;
-  box-sizing: border-box;
+  position:relative;
+  width:100%;
+  max-width:none!important;   /* ⬅ cancel the 1200 px limit */
+  margin:0;                   /* ⬅ remove the centring offset */
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 2rem;
+  box-sizing:border-box;
   background-color: rgba(26,26,26,0.8);
   background-image:
     radial-gradient(circle at 10% 20%, rgba(77, 159, 255, 0.1) 0%, transparent 30%),
