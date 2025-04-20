@@ -82,30 +82,20 @@ body.light-mode .card {
 
 /* Hero section */
 .hero-section {
-  /* break out of your centered container and span the full viewport */
-  position: relative;
-  left: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-
-  /* preserve full‑screen height & flex centering */
-  min-height: 100vh;
+  position: relative;      /* let it sit in normal flow */
+  width: 100%;             /* span the full width of the page */
+  min-height: 100vh;       /* at least the height of the viewport */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* optional inner padding, keeps hero‑content aligned with .container */
-  padding: 0 2rem;
-  box-sizing: border-box;
-
-  /* your dark overlay + gradients */
+  padding: 0 2rem;         /* match your .container side-padding */
+  box-sizing: border-box;  /* ensure that padding doesn't bloat it */
   background-color: rgba(26,26,26,0.8);
   background-image:
     radial-gradient(circle at 10% 20%, rgba(77, 159, 255, 0.1) 0%, transparent 30%),
     radial-gradient(circle at 90% 80%, rgba(77, 159, 255, 0.1) 0%, transparent 30%);
   overflow: hidden;
 }
-
 
 .light-mode .hero-section {
   background-color: rgba(245,245,247,0.8);
