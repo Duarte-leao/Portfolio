@@ -78,7 +78,7 @@ body.light-mode .card {
 /* Hero section */
 .hero-section {
   height: 100vh;
-  width: 100vw; /* Use viewport width instead of % */
+  width: 100%; /* Use viewport width instead of % */
   display: flex;
   align-items: center;
   justify-content: center;
