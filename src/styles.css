@@ -1,10 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
   padding: 0;
   color: #e6e6e6;
   line-height: 1.7;
-  background-color: #1a1a1a;
+  background-color: #0d0d0d; /* Darker background */
   font-size: 16px;
 }
 
@@ -14,12 +18,14 @@ body {
   padding: 0 2rem;
 }
 
+/* Header Styling */
 header {
-  padding: 3rem 2rem 2rem;
+  padding: 4rem 0 2rem; /* More padding top */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .profile-pic-container {
@@ -27,197 +33,279 @@ header {
 }
 
 .profile-pic {
-  width: 150px;
+  width: 150px; /* Slightly larger */
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #333;
-}
-
-.header-text {
-  max-width: 700px;
+  border: none;
 }
 
 h1 {
   margin: 0;
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 2.5rem; /* Larger name */
+  font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-.title {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
+.tagline {
+  font-size: 1.1rem; /* Tagline style */
+  margin: 0.5rem 0 1.5rem;
   color: #b0b0b0;
   font-weight: 400;
+  max-width: 500px;
 }
 
-/* Navigation bar */
+/* Sticky Navbar Styling */
 .navbar {
-  background-color: #222;
+  background-color: rgba(13, 13, 13, 0.85); /* Semi-transparent dark background */
+  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: none; /* Removed the white/gray bottom border */
+  border-bottom: 1px solid #222; /* Subtle border */
   padding: 0.75rem 0;
-  margin-bottom: 2rem;
+  margin-bottom: 0; /* Remove margin */
+  width: 100%;
 }
 
 nav {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.5rem; /* Increased gap */
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* remove the underline on your nav tabs - all states */
-nav a,
-nav a:hover,
-nav a.active {
-  text-decoration: none !important; /* explicitly disable any underline with !important */
-  font-size: 0.95rem;
-  padding: 0.4rem 0;
-  font-weight: 500;
-}
-
-/* Default state for nav links */
 nav a {
   color: #b0b0b0;
-  transition: color 0.2s, border-bottom 0.2s;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  font-weight: 500;
   border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
 }
 
-/* Hover and active states - only add the styling that should change */
 nav a:hover,
 nav a.active {
   color: #fff;
-  border-bottom: 2px solid #4d9fff;
+  border-bottom: 2px solid #4d9fff; /* Blue underline for active/hover */
+  text-decoration: none !important; /* Ensure no other underline */
 }
 
+/* Section Styling */
 section {
-  padding: 2rem 0;
+  padding: 3rem 0; /* Increased padding */
+  margin: 0 auto 2rem;
   max-width: 900px;
-  margin: 1rem auto 3rem;
+  border-top: 1px solid #222; /* Separator line */
+}
+
+section:first-of-type {
+    border-top: none; /* No border above the first section (About) */
 }
 
 h2 {
-  font-size: 1.5rem;
-  border-bottom: none; /* Removed the white underline */
+  font-size: 1.8rem;
+  border-bottom: none;
   padding-bottom: 0.5rem;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 2rem; /* Increased margin */
+  font-weight: 700;
 }
 
-/* Remove all underlines from headings */
-h1, h2, h3, h4, h5, h6 {
-  border-bottom: none !important; /* Using !important to override any other styles */
-  text-decoration: none !important;
+/* About Section Specifics */
+#about {
+  position: relative;
 }
 
-.section-content {
-  margin-bottom: 2rem;
-}
-
-/* Publications styling */
-.publication-item {
-  margin-bottom: 1.8rem;
-}
-
-.publication-title {
-  font-weight: 500;
-  margin-bottom: 0.3rem;
-  font-size: 1.1rem;
-}
-
-.publication-authors {
-  font-style: italic;
-  color: #b0b0b0;
-  margin-bottom: 0.3rem;
-}
-
-.publication-venue {
-  color: #999;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
-.publication-links {
-  margin-top: 0.5rem;
-}
-
-.publication-links a {
-  margin-right: 1rem;
-  font-size: 0.9rem;
-}
-
-/* Experience and Education */
-.experience-item, .education-item {
-  margin-bottom: 2rem;
-}
-
-.experience-item h3, .education-item h3 {
-  margin-bottom: 0.3rem;
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-.organization, .institution {
-  color: #b0b0b0;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
-ul {
-  margin-top: 0.5rem;
-  padding-left: 1.2rem;
-  list-style-type: square;
-}
-
-li {
-  margin-bottom: 0.5rem;
-}
-
-/* Projects */
-.project-item {
-  margin-bottom: 1.8rem;
-}
-
-.project-item h3 {
-  margin-bottom: 0.3rem;
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-/* Contact links */
-.contact-links {
+.about-content-wrapper {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 2rem;
+  align-items: flex-start;
 }
 
-.contact-links a {
-  color: #b0b0b0;
-  transition: color 0.2s;
-  font-size: 1.2rem;
+.about-text {
+  flex: 3; /* Takes more space */
 }
 
-.contact-links a:hover {
+/* Stats Box Styling */
+.stats-container {
+  flex: 1; /* Takes less space */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #1a1a1a; /* Box background */
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #2a2a2a;
+}
+
+.stat-box {
+  text-align: left;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.2rem;
   color: #fff;
 }
 
-footer {
-  background: #222;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 3rem;
+.stat-label {
+  font-size: 0.85rem;
   color: #999;
-  font-size: 0.9rem;
-  border-top: 1px solid #333;
+  text-transform: uppercase;
 }
 
+/* Research Interests Specifics */
+#research {
+  position: relative;
+  padding-top: 3rem; /* Ensure space for CV button */
+}
+
+/* CV Button Styling */
+.cv-button {
+  position: absolute;
+  top: 3rem; /* Align with section padding */
+  left: 0;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #2a2a2a;
+  color: #fff;
+  border-radius: 4px;
+  border: 1px solid #444;
+  transition: all 0.2s;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.cv-button:hover {
+  background: #333;
+  text-decoration: none;
+}
+
+.interests-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem; /* Increased gap */
+  margin-top: 1rem;
+}
+
+.interest-tag {
+  background: #1a1a1a;
+  padding: 0.4rem 1rem;
+  border-radius: 4px; /* Less rounded */
+  font-size: 0.9rem;
+  display: inline-block;
+  border: 1px solid #2a2a2a;
+}
+
+/* Publications Styling */
+.publication-item {
+  margin-bottom: 2.5rem; /* Increased spacing */
+}
+
+.publication-title {
+  font-weight: 600; /* Bolder title */
+  margin-bottom: 0.4rem;
+  font-size: 1.15rem;
+  color: #fff; /* White title */
+}
+
+.publication-authors {
+  font-style: normal; /* Not italic */
+  color: #b0b0b0;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.publication-venue {
+  color: #888; /* Lighter venue */
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.publication-links a {
+  margin-right: 1.2rem;
+  font-size: 0.9rem;
+  color: #4d9fff;
+  text-decoration: none;
+}
+
+.publication-links a i {
+  margin-right: 0.3rem;
+}
+
+.publication-links a:hover {
+  text-decoration: underline;
+}
+
+/* Projects Styling */
+.project-item {
+  margin-bottom: 2.5rem;
+}
+
+.project-item h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+.project-item p {
+    margin-bottom: 1rem;
+}
+
+.project-links a {
+  margin-right: 1.2rem;
+  font-size: 0.9rem;
+  color: #4d9fff;
+  text-decoration: none;
+}
+
+.project-links a i {
+  margin-right: 0.3rem;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Section Specifics */
+#contact .section-content p {
+    margin-bottom: 1.5rem;
+}
+
+.contact-links-icons {
+  display: flex;
+  gap: 2rem; /* Increased gap */
+  margin-top: 1rem;
+}
+
+.contact-links-icons a {
+  color: #999; /* Icon color */
+  transition: color 0.2s;
+  font-size: 1.5rem; /* Larger icons */
+}
+
+.contact-links-icons a:hover {
+  color: #fff;
+}
+
+/* Footer Styling */
+footer {
+  background: transparent;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: #666;
+  font-size: 0.85rem;
+  border-top: 1px solid #222;
+}
+
+/* General Link Styling */
 a {
   color: #4d9fff;
   text-decoration: none;
@@ -227,116 +315,80 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Research interests styling */
-.research-interests {
-  margin: 1rem 0 2rem;
-}
-
-.research-interests h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.interests-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
-}
-
-.interest-tag {
-  background: #2a2a2a;
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  display: inline-block;
-}
-
-/* CV button */
-.cv-button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background: #2a2a2a;
-  color: #fff;
-  border-radius: 4px;
-  border: 1px solid #444;
-  transition: all 0.2s;
-  font-weight: 500;
-}
-
-.cv-button:hover {
-  background: #333;
-  text-decoration: none;
-}
-
-.cv-button i {
-  margin-right: 0.5rem;
-}
-
-/* News section */
-.news-item {
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.news-date {
-  min-width: 100px;
-  color: #999;
-  font-size: 0.9rem;
-}
-
-/* Skills styling */
-.skills-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.skills-list li {
-  margin-bottom: 0.8rem;
+/* Remove underlines from headings */
+h1, h2, h3, h4, h5, h6 {
+  border-bottom: none !important;
+  text-decoration: none !important;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  header {
-    padding: 2rem 1rem 1.5rem;
+  .container {
+    padding: 0 1rem;
   }
-  
+
+  header {
+    padding: 2rem 0 1rem;
+  }
+
   .profile-pic {
     width: 120px;
     height: 120px;
   }
-  
+
   h1 {
     font-size: 2rem;
   }
-  
-  .navbar {
-    padding: 0.5rem 0;
+
+  .tagline {
+    font-size: 1rem;
   }
-  
+
   nav {
-    flex-wrap: wrap;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
     justify-content: center;
-    gap: 1rem 1.5rem;
   }
-  
+
+  nav a {
+    font-size: 0.95rem;
+  }
+
   section {
-    padding: 1.5rem 1rem;
+    padding: 2rem 0;
   }
-  
-  .contact-links {
-    gap: 1rem;
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
   }
-  
-  .news-item {
+
+  .about-content-wrapper {
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 1.5rem;
   }
-  
-  .news-date {
-    min-width: auto;
+
+  .stats-container {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+  }
+
+  .stat-box {
+      text-align: center;
+  }
+
+  #research {
+    padding-top: 6rem; /* More space for CV button */
+  }
+
+  .cv-button {
+    top: 2rem;
+    left: 0;
+  }
+
+  .contact-links-icons {
+    justify-content: center;
   }
 }
