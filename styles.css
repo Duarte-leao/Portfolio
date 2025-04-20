@@ -91,12 +91,11 @@ section:not(.hero-section) {
 .hero-section {
   position:relative;
   width:100%;
-  max-width:none!important;   /* ⬅ cancel the 1200 px limit */
-  margin:0;                   /* ⬅ remove the centring offset */
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
+  margin:0;
   padding:0 2rem;
   box-sizing:border-box;
   background-color: rgba(26,26,26,0.8);
@@ -280,12 +279,6 @@ nav a:hover,
 nav a.active {
   color: #fff;
   border-bottom: 2px solid #4d9fff;
-}
-
-section {
-  padding: 4rem 0;
-  max-width: 1200px;
-  margin: 0 auto 3rem;
 }
 
 h2 {
