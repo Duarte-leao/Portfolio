@@ -82,17 +82,19 @@ body.light-mode .card {
 
 /* Hero section */
 .hero-section {
-  /* break out of any max-width: */
-  width: 100vw;
-  left: 50%;
-  margin-left: -50vw;
+  /* break out of your centered container and span the full viewport */
   position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
 
-  /* keep your full‑screen centering */
+  /* preserve full‑screen height & flex centering */
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* optional inner padding, keeps hero‑content aligned with .container */
   padding: 0 2rem;
   box-sizing: border-box;
 
@@ -103,6 +105,7 @@ body.light-mode .card {
     radial-gradient(circle at 90% 80%, rgba(77, 159, 255, 0.1) 0%, transparent 30%);
   overflow: hidden;
 }
+
 
 .light-mode .hero-section {
   background-color: rgba(245,245,247,0.8);
