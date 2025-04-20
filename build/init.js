@@ -581,10 +581,10 @@ function createExperienceSection() {
         const collapseInner = document.createElement("div");
         collapseInner.className = "collapse-content-inner";
         // Add older experiences to the inner content container
-        experiences.slice(2).forEach(exp => {
+        experiences.slice(2).forEach((exp) => {
             createExperienceItem(collapseInner, exp, true);
         });
-        // Add click event handler directly 
+        // Add click event handler directly
         collapsibleHeader.addEventListener("click", function (e) {
             // Prevent event bubbling
             e.stopPropagation();

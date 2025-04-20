@@ -744,36 +744,38 @@ function createExperienceSection() {
 
   // Display current/recent experience normally
   const recentExperiences = experiences.slice(0, 2);
-  recentExperiences.forEach((exp) => createExperienceItem(container, exp, false));
+  recentExperiences.forEach((exp) =>
+    createExperienceItem(container, exp, false)
+  );
 
   // Make older experiences collapsible
   if (experiences.length > 2) {
     const olderExperiencesContainer = document.createElement("div");
     olderExperiencesContainer.className = "collapsible-section";
-    
+
     const collapsibleHeader = document.createElement("div");
     collapsibleHeader.className = "collapsible-header";
     collapsibleHeader.innerHTML = `<h3>Previous Experience</h3><span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>`;
-    
+
     const collapseContent = document.createElement("div");
     collapseContent.className = "collapse-content";
-    
+
     // Add an inner div to apply padding properly
     const collapseInner = document.createElement("div");
     collapseInner.className = "collapse-content-inner";
-    
+
     // Add older experiences to the inner content container
-    experiences.slice(2).forEach(exp => {
+    experiences.slice(2).forEach((exp) => {
       createExperienceItem(collapseInner, exp, true);
     });
-    
-    // Add click event handler directly 
-    collapsibleHeader.addEventListener("click", function(e) {
+
+    // Add click event handler directly
+    collapsibleHeader.addEventListener("click", function (e) {
       // Prevent event bubbling
       e.stopPropagation();
       olderExperiencesContainer.classList.toggle("active");
     });
-    
+
     collapseContent.appendChild(collapseInner);
     olderExperiencesContainer.appendChild(collapsibleHeader);
     olderExperiencesContainer.appendChild(collapseContent);
