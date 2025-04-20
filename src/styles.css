@@ -87,55 +87,53 @@ section:not(.hero-section) {
   margin: 0 auto 3rem;
 }
 
-/* Give the hero its own full-bleed layout */
+/* Hero section */
 .hero-section {
-  position:relative;
-  width:100%;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0;
-  padding:0 2rem;
-  padding-top: 4.5rem;  /* 4.5rem ≈ nav height + a bit */
-  box-sizing:border-box;
-  background-color: rgba(26,26,26,0.8);
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(77, 159, 255, 0.1) 0%, transparent 30%),
-    radial-gradient(circle at 90% 80%, rgba(77, 159, 255, 0.1) 0%, transparent 30%);
-  overflow: hidden;
-}
-
-/* Add fade-out effect at the bottom of the hero section */
-.hero-section::after {
-  content: '';
-  position: absolute;
-  left: 0; 
-  bottom: 0;
+  position: relative;
   width: 100%;
-  height: 12vh;                /* 12% of the viewport height */
-  background: linear-gradient(
-              to bottom,
-              rgba(26,26,26,0)  0%,   /* fully transparent */
-              #1a1a1a          100%   /* body background color */
-            );
-  pointer-events: none;        /* stays "invisible" to the mouse */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0 2rem;
+  padding-top: 4.5rem;  /* 4.5rem ≈ nav height + a bit */
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  /* SOLID base colour first */
+  background: #1a1a1a;            /* matches <body> exactly */
+  
+  /* visual effects on top of the solid base */
+  background-image:
+    /* vertical fade-out */
+    linear-gradient(to bottom,
+      rgba(26,26,26,0) 70%,      /* transparent until 70% */
+      #1a1a1a 100%),             /* ends with the page colour */
+    /* decorative radial glows */
+    radial-gradient(circle at 10% 20%, rgba(77,159,255,.10) 0%, transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(77,159,255,.10) 0%, transparent 30%);
+  background-repeat: no-repeat;
 }
 
-/* Light theme version of the fade-out effect */
+/* Light theme version */
+body.light-mode .hero-section {
+  background: #f5f5f7;
+  background-image:
+    linear-gradient(to bottom,
+      rgba(245,245,247,0) 70%,
+      #f5f5f7 100%),
+    radial-gradient(circle at 10% 20%, rgba(46,123,209,.10) 0%, transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(46,123,209,.10) 0%, transparent 30%);
+}
+
+/* Remove the old pseudo-element fade-out approach */
+.hero-section::after {
+  content: none;  /* Disable the old pseudo-element */
+}
+
 body.light-mode .hero-section::after {
-  background: linear-gradient(
-              to bottom,
-              rgba(245,245,247,0) 0%,
-              #f5f5f7           100%
-            );
-}
-
-.light-mode .hero-section {
-  background-color: rgba(245,245,247,0.8);
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(46, 123, 209, 0.1) 0%, transparent 30%),
-    radial-gradient(circle at 90% 80%, rgba(46, 123, 209, 0.1) 0%, transparent 30%);
+  content: none;  /* Disable the old pseudo-element in light mode too */
 }
 
 .hero-content {
