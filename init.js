@@ -232,6 +232,71 @@ const skillCategories = [
         skills: "Scientific Writing, Literature Review, Experimental Design, Statistical Analysis",
     },
 ];
+function createThemeToggle() {
+    const themeToggle = document.createElement("button");
+    themeToggle.className = "theme-toggle";
+    themeToggle.setAttribute("aria-label", "Toggle dark/light mode");
+    const icon = document.createElement("i");
+    icon.className = "fas fa-moon"; // Default dark mode icon
+    themeToggle.appendChild(icon);
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        if (document.body.classList.contains("light-mode")) {
+            icon.className = "fas fa-sun";
+            localStorage.setItem("theme", "light");
+        }
+        else {
+            icon.className = "fas fa-moon";
+            localStorage.setItem("theme", "dark");
+        }
+    });
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+        icon.className = "fas fa-sun";
+    }
+    return themeToggle;
+}
+function createHeroSection() {
+    const heroSection = document.createElement("section");
+    heroSection.className = "hero-section";
+    const heroContent = document.createElement("div");
+    heroContent.className = "hero-content";
+    const heroTitle = document.createElement("h1");
+    heroTitle.className = "hero-title";
+    heroTitle.textContent = "Duarte Leão";
+    const heroSubtitle = document.createElement("div");
+    heroSubtitle.className = "hero-subtitle";
+    heroSubtitle.textContent =
+        "AI Researcher | PhD Student | Machine Learning Engineer";
+    const contactDiv = document.createElement("div");
+    contactDiv.className = "contact-links";
+    contactLinks.forEach((link) => {
+        const a = document.createElement("a");
+        a.href = link.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.title = link.name;
+        const i = document.createElement("i");
+        i.className = link.icon || "";
+        a.appendChild(i);
+        contactDiv.appendChild(a);
+    });
+    const scrollIndicator = document.createElement("div");
+    scrollIndicator.className = "scroll-indicator";
+    scrollIndicator.innerHTML = '<i class="fas fa-chevron-down"></i>';
+    scrollIndicator.addEventListener("click", () => {
+        var _a;
+        (_a = document.getElementById("about")) === null || _a === void 0 ? void 0 : _a.scrollIntoView({ behavior: "smooth" });
+    });
+    heroContent.appendChild(heroTitle);
+    heroContent.appendChild(heroSubtitle);
+    heroContent.appendChild(contactDiv);
+    heroSection.appendChild(heroContent);
+    heroSection.appendChild(scrollIndicator);
+    return heroSection;
+}
 function createHeader() {
     const header = document.createElement("header");
     const profilePicContainer = document.createElement("div");
@@ -365,7 +430,11 @@ function createPublicationsSection() {
     const title = document.createElement("h2");
     title.textContent = "Publications";
     container.appendChild(title);
+    const gridLayout = document.createElement("div");
+    gridLayout.className = "grid-layout";
     publications.forEach((pub) => {
+        const card = document.createElement("div");
+        card.className = "card";
         const publicationItem = document.createElement("div");
         publicationItem.className = "publication-item";
         const pubTitle = document.createElement("div");
@@ -416,8 +485,10 @@ function createPublicationsSection() {
         publicationItem.appendChild(pubAuthors);
         publicationItem.appendChild(pubVenue);
         publicationItem.appendChild(pubLinks);
-        container.appendChild(publicationItem);
+        card.appendChild(publicationItem);
+        gridLayout.appendChild(card);
     });
+    container.appendChild(gridLayout);
     section.appendChild(container);
     return section;
 }
@@ -429,14 +500,20 @@ function createProjectsSection() {
     const title = document.createElement("h2");
     title.textContent = "Projects";
     container.appendChild(title);
+    const gridLayout = document.createElement("div");
+    gridLayout.className = "grid-layout";
     projects.forEach((project) => {
+        const card = document.createElement("div");
+        card.className = "card";
         const projectItem = document.createElement("div");
         projectItem.className = "project-item";
         const projectTitle = document.createElement("h3");
         projectTitle.textContent = project.name;
         const projectDesc = document.createElement("p");
+        projectDesc.className = "project-desc";
         projectDesc.textContent = project.description;
         const projectTech = document.createElement("p");
+        projectTech.className = "project-tech";
         if (project.technologies) {
             const techSpan = document.createElement("span");
             techSpan.style.color = "#b0b0b0";
@@ -445,6 +522,7 @@ function createProjectsSection() {
             projectTech.appendChild(document.createTextNode(project.technologies.join(", ")));
         }
         const projectLinks = document.createElement("p");
+        projectLinks.className = "project-links";
         if (project.githubUrl) {
             const githubLink = document.createElement("a");
             githubLink.href = project.githubUrl;
@@ -472,8 +550,10 @@ function createProjectsSection() {
         projectItem.appendChild(projectDesc);
         projectItem.appendChild(projectTech);
         projectItem.appendChild(projectLinks);
-        container.appendChild(projectItem);
+        card.appendChild(projectItem);
+        gridLayout.appendChild(card);
     });
+    container.appendChild(gridLayout);
     section.appendChild(container);
     return section;
 }
@@ -485,36 +565,58 @@ function createExperienceSection() {
     const title = document.createElement("h2");
     title.textContent = "Experience";
     container.appendChild(title);
-    experiences.forEach((exp) => {
-        const experienceItem = document.createElement("div");
-        experienceItem.className = "experience-item";
-        const role = document.createElement("h3");
-        role.textContent = exp.role;
-        // Use a different approach for setting HTML content
-        const orgInfo = document.createElement("div");
-        orgInfo.className = "organization";
-        // Create a temporary div to handle HTML content
-        const tempDiv = document.createElement("div");
-        tempDiv.innerHTML = `${exp.organization}, ${exp.location} • ${exp.period}`;
-        // Copy the innerHTML to the target element
-        while (tempDiv.firstChild) {
-            orgInfo.appendChild(tempDiv.firstChild);
-        }
-        experienceItem.appendChild(role);
-        experienceItem.appendChild(orgInfo);
-        if (exp.description && exp.description.length > 0) {
-            const descriptionList = document.createElement("ul");
-            exp.description.forEach((descItem) => {
-                const listItem = document.createElement("li");
-                listItem.innerHTML = descItem;
-                descriptionList.appendChild(listItem);
-            });
-            experienceItem.appendChild(descriptionList);
-        }
-        container.appendChild(experienceItem);
-    });
+    // Display current/recent experience normally
+    const recentExperiences = experiences.slice(0, 2);
+    recentExperiences.forEach((exp) => createExperienceItem(container, exp, false));
+    // Make older experiences collapsible
+    if (experiences.length > 2) {
+        const olderExperiencesContainer = document.createElement("div");
+        olderExperiencesContainer.className = "collapsible-section";
+        const collapsibleHeader = document.createElement("div");
+        collapsibleHeader.className = "collapsible-header";
+        collapsibleHeader.innerHTML = `<h3>Previous Experience</h3><span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>`;
+        const collapseContent = document.createElement("div");
+        collapseContent.className = "collapse-content";
+        experiences.slice(2).forEach((exp) => {
+            createExperienceItem(collapseContent, exp, true);
+        });
+        collapsibleHeader.addEventListener("click", () => {
+            olderExperiencesContainer.classList.toggle("active");
+        });
+        olderExperiencesContainer.appendChild(collapsibleHeader);
+        olderExperiencesContainer.appendChild(collapseContent);
+        container.appendChild(olderExperiencesContainer);
+    }
     section.appendChild(container);
     return section;
+}
+function createExperienceItem(container, exp, isCollapsible) {
+    const experienceItem = document.createElement("div");
+    experienceItem.className = "experience-item";
+    const role = document.createElement("h3");
+    role.textContent = exp.role;
+    // Use a different approach for setting HTML content
+    const orgInfo = document.createElement("div");
+    orgInfo.className = "organization";
+    // Create a temporary div to handle HTML content
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = `${exp.organization}, ${exp.location} • ${exp.period}`;
+    // Copy the innerHTML to the target element
+    while (tempDiv.firstChild) {
+        orgInfo.appendChild(tempDiv.firstChild);
+    }
+    experienceItem.appendChild(role);
+    experienceItem.appendChild(orgInfo);
+    if (exp.description && exp.description.length > 0) {
+        const descriptionList = document.createElement("ul");
+        exp.description.forEach((descItem) => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = descItem;
+            descriptionList.appendChild(listItem);
+        });
+        experienceItem.appendChild(descriptionList);
+    }
+    container.appendChild(experienceItem);
 }
 function createEducationSection() {
     const section = document.createElement("section");
@@ -600,7 +702,7 @@ function createSkillsSection() {
     skillCategories.forEach((skillCat) => {
         const skillItem = document.createElement("li");
         const category = document.createElement("strong");
-        category.textContent = `${skillCat.category}: `;
+        category.textContent = `${skillCat.category}`;
         skillItem.appendChild(category);
         skillItem.appendChild(document.createTextNode(skillCat.skills));
         skillsList.appendChild(skillItem);
@@ -652,6 +754,11 @@ function init() {
     const rootElement = document.getElementById("root");
     if (!rootElement)
         return;
+    // Add theme toggle button
+    document.body.appendChild(createThemeToggle());
+    // Add hero section first
+    rootElement.appendChild(createHeroSection());
+    // Add the original header with profile image
     rootElement.appendChild(createHeader());
     rootElement.appendChild(createNavbar());
     rootElement.appendChild(createAboutSection());
@@ -681,6 +788,15 @@ function init() {
             const href = link.getAttribute("href");
             if (href && href.substring(1) === current) {
                 link.classList.add("active");
+            }
+        });
+    });
+    // Initialize collapsible sections
+    document.querySelectorAll(".collapsible-header").forEach((header) => {
+        header.addEventListener("click", () => {
+            const parent = header.parentElement;
+            if (parent) {
+                parent.classList.toggle("active");
             }
         });
     });
