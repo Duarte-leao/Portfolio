@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Collapsible</title>
+  <style>
+    .collapsible {
+      background-color: #252525;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      border-radius: 8px;
+      margin-bottom: 1px;
+    }
+
+    .collapsible:after {
+      content: '\002B';
+      color: white;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background-color: #333;
+      border-radius: 0 0 8px 8px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body style="background-color: #1a1a1a; color: #e6e6e6; font-family: Arial, sans-serif; padding: 20px;">
+
+  <h2>Simple Collapsible Test</h2>
+  
+  <button class="collapsible">Previous Experience</button>
+  <div class="content">
+    <div style="padding: 18px;">
+      <h3>Machine Learning Engineer</h3>
+      <p>General Logistics Systems (GLS), Lisbon • Dec 2023 — Jan 2025</p>
+      <ul>
+        <li>Developed AI solutions for logistics optimization</li>
+        <li>Implemented machine learning pipelines</li>
+      </ul>
+      
+      <h3>Graduate Researcher</h3>
+      <p>Institute for Systems and Robotics (ISR), Lisbon • Jan 2022 — Nov 2023</p>
+      <ul>
+        <li>Developed sensor fusion algorithms</li>
+        <li>Implemented state estimation for non-Gaussian noises</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // This is the key script that handles the collapsible functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      var collapsibles = document.getElementsByClassName("collapsible");
+      
+      for (var i = 0; i < collapsibles.length; i++) {
+        collapsibles[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

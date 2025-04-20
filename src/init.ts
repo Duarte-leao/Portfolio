@@ -750,36 +750,50 @@ function createExperienceSection() {
 
   // Make older experiences collapsible
   if (experiences.length > 2) {
-    const olderExperiencesContainer = document.createElement("div");
-    olderExperiencesContainer.className = "collapsible-section";
+    // Create a button that will act as the collapsible header
+    const collapsibleButton = document.createElement("button");
+    collapsibleButton.className = "collapsible-button";
+    collapsibleButton.innerHTML = `Previous Experience <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>`;
 
-    const collapsibleHeader = document.createElement("div");
-    collapsibleHeader.className = "collapsible-header";
-    collapsibleHeader.innerHTML = `<h3>Previous Experience</h3><span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>`;
+    // Create the content container
+    const content = document.createElement("div");
+    content.className = "collapsible-content";
 
-    const collapseContent = document.createElement("div");
-    collapseContent.className = "collapse-content";
+    // Create the inner content wrapper with proper padding
+    const contentInner = document.createElement("div");
+    contentInner.className = "collapsible-content-inner";
 
-    // Add an inner div to apply padding properly
-    const collapseInner = document.createElement("div");
-    collapseInner.className = "collapse-content-inner";
-
-    // Add older experiences to the inner content container
+    // Add older experiences to the inner container
     experiences.slice(2).forEach((exp) => {
-      createExperienceItem(collapseInner, exp, true);
+      createExperienceItem(contentInner, exp, true);
     });
 
-    // Add click event handler directly
-    collapsibleHeader.addEventListener("click", function (e) {
-      // Prevent event bubbling
-      e.stopPropagation();
-      olderExperiencesContainer.classList.toggle("active");
+    // Add the inner container to the content container
+    content.appendChild(contentInner);
+
+    // Add the event listener to the button
+    collapsibleButton.addEventListener("click", function () {
+      this.classList.toggle("active");
+
+      // Toggle the icon rotation
+      const icon = this.querySelector(".toggle-icon i") as HTMLElement;
+      if (icon) {
+        icon.style.transform = this.classList.contains("active")
+          ? "rotate(180deg)"
+          : "";
+      }
+
+      // Toggle the content visibility with proper height calculation
+      if (content.style.maxHeight) {
+        content.style.maxHeight = "";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
     });
 
-    collapseContent.appendChild(collapseInner);
-    olderExperiencesContainer.appendChild(collapsibleHeader);
-    olderExperiencesContainer.appendChild(collapseContent);
-    container.appendChild(olderExperiencesContainer);
+    // Add to container
+    container.appendChild(collapsibleButton);
+    container.appendChild(content);
   }
 
   section.appendChild(container);
