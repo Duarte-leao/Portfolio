@@ -94,7 +94,7 @@ body.light-mode .card {
   background-image:
     radial-gradient(circle at 10% 20%, rgba(77, 159, 255, 0.1) 0%, transparent 30%),
     radial-gradient(circle at 90% 80%, rgba(77, 159, 255, 0.1) 0%, transparent 30%);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .light-mode .hero-section {
@@ -773,4 +773,4 @@ a:hover {
     top: 10px;
     right: 10px;
   }
-} 
+}
