@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collapsible Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1a1a1a;
+      color: #e6e6e6;
+      line-height: 1.7;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    
+    /* Collapsible section */
+    .collapsible-section {
+      margin-bottom: 2rem;
+      background-color: #252525;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .collapsible-header {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      background-color: #252525;
+      border-radius: 8px;
+    }
+    
+    .collapsible-header h3 {
+      margin: 0;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    
+    .toggle-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .collapse-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    
+    .collapse-content-inner {
+      padding: 0 1.5rem 1.5rem;
+    }
+    
+    .collapsible-section.active .collapse-content {
+      max-height: 1000px;
+    }
+    
+    .collapsible-section.active .toggle-icon {
+      transform: rotate(180deg);
+    }
+    
+    .experience-item {
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      background-color: #333;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Collapsible Test</h1>
+    
+    <div class="collapsible-section">
+      <div class="collapsible-header">
+        <h3>Previous Experience</h3>
+        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+      </div>
+      <div class="collapse-content">
+        <div class="collapse-content-inner">
+          <div class="experience-item">
+            <h3>Machine Learning Engineer</h3>
+            <div>General Logistics Systems (GLS), Lisbon • Dec 2023 — Jan 2025</div>
+            <ul>
+              <li>Developed AI solutions for logistics optimization</li>
+              <li>Implemented machine learning pipelines</li>
+            </ul>
+          </div>
+          <div class="experience-item">
+            <h3>Graduate Researcher</h3>
+            <div>Institute for Systems and Robotics (ISR), Lisbon • Jan 2022 — Nov 2023</div>
+            <ul>
+              <li>Developed sensor fusion algorithms</li>
+              <li>Implemented state estimation for non-Gaussian noises</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const collapsibleHeader = document.querySelector('.collapsible-header');
+      
+      collapsibleHeader.addEventListener('click', function() {
+        const parent = this.parentElement;
+        parent.classList.toggle('active');
+        console.log('Toggled active class:', parent.classList.contains('active'));
+      });
+    });
+  </script>
+</body>
+</html>

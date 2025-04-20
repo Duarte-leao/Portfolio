@@ -449,12 +449,15 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease;
-  padding: 0 1.5rem;
+  padding: 0;
+}
+
+.collapse-content-inner {
+  padding: 0 1.5rem 1.5rem;
 }
 
 .collapsible-section.active .collapse-content {
   max-height: 2000px; /* Higher value to accommodate all content */
-  padding: 0 1.5rem 1.5rem;
 }
 
 .collapsible-section.active .toggle-icon {
