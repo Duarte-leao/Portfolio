@@ -1035,18 +1035,25 @@ function init() {
   // Add hero section first
   rootElement.appendChild(createHeroSection());
 
+  // Create a wrapper div for the rest of the content with proper spacing
+  const contentWrapper = document.createElement("div");
+  contentWrapper.style.marginTop = "100vh"; // Add margin equal to the hero height
+
   // Add the original header with profile image
-  rootElement.appendChild(createHeader());
-  rootElement.appendChild(createNavbar());
-  rootElement.appendChild(createAboutSection());
-  rootElement.appendChild(createPublicationsSection());
-  rootElement.appendChild(createProjectsSection());
-  rootElement.appendChild(createExperienceSection());
-  rootElement.appendChild(createEducationSection());
-  rootElement.appendChild(createTeachingSection());
-  rootElement.appendChild(createSkillsSection());
-  rootElement.appendChild(createContactSection());
-  rootElement.appendChild(createFooter());
+  contentWrapper.appendChild(createHeader());
+  contentWrapper.appendChild(createNavbar());
+  contentWrapper.appendChild(createAboutSection());
+  contentWrapper.appendChild(createPublicationsSection());
+  contentWrapper.appendChild(createProjectsSection());
+  contentWrapper.appendChild(createExperienceSection());
+  contentWrapper.appendChild(createEducationSection());
+  contentWrapper.appendChild(createTeachingSection());
+  contentWrapper.appendChild(createSkillsSection());
+  contentWrapper.appendChild(createContactSection());
+  contentWrapper.appendChild(createFooter());
+
+  // Add the content wrapper to the root
+  rootElement.appendChild(contentWrapper);
 
   // Add active class to navbar links on scroll
   window.addEventListener("scroll", () => {
