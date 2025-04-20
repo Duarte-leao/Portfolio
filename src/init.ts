@@ -1039,9 +1039,6 @@ function init() {
   // Add theme toggle button
   document.body.appendChild(createThemeToggle());
 
-  // Add hero section first
-  rootElement.appendChild(createHeroSection());
-
   // Create a wrapper div for the rest of the content without the margin hack
   const contentWrapper = document.createElement("div");
 
@@ -1049,6 +1046,8 @@ function init() {
   // contentWrapper.appendChild(createHeader());
 
   contentWrapper.appendChild(createNavbar());
+  // Add hero section first
+  rootElement.appendChild(createHeroSection());
   contentWrapper.appendChild(createAboutSection());
   contentWrapper.appendChild(createPublicationsSection());
   contentWrapper.appendChild(createProjectsSection());
