@@ -75,23 +75,26 @@ body.light-mode .card {
   padding: 0 2rem;
 }
 
+/* Reset box-sizing for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* Hero section */
 .hero-section {
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0; /* Using left: 0 + right: 0 instead of width: 100vw */
-  overflow: hidden;
+  position: relative;      /* let it sit in normal flow */
+  width: 100%;             /* span the full width of the page */
+  min-height: 100vh;       /* at least the height of the viewport */
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 2rem;         /* match your .container side-padding */
+  box-sizing: border-box;  /* ensure that padding doesn't bloat it */
   background-color: rgba(26,26,26,0.8);
-  background-image: 
+  background-image:
     radial-gradient(circle at 10% 20%, rgba(77, 159, 255, 0.1) 0%, transparent 30%),
     radial-gradient(circle at 90% 80%, rgba(77, 159, 255, 0.1) 0%, transparent 30%);
-  margin: 0;
-  padding: 0;
+  overflow: hidden;
 }
 
 .light-mode .hero-section {

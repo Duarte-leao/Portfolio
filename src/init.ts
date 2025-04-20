@@ -1035,9 +1035,8 @@ function init() {
   // Add hero section first
   rootElement.appendChild(createHeroSection());
 
-  // Create a wrapper div for the rest of the content with proper spacing
+  // Create a wrapper div for the rest of the content without the margin hack
   const contentWrapper = document.createElement("div");
-  contentWrapper.style.marginTop = "100vh"; // Add margin equal to the hero height
 
   // Add the original header with profile image
   contentWrapper.appendChild(createHeader());
