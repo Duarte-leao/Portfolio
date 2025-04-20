@@ -4,47 +4,22 @@ body {
   padding: 0;
   color: #e6e6e6;
   line-height: 1.7;
-  background-color: #111111;
+  background-color: #1a1a1a;
   font-size: 16px;
-  display: flex;
-  min-height: 100vh;
 }
 
 .container {
-  max-width: 100%;
-  padding: 0;
-}
-
-.page-layout {
-  display: flex;
-  width: 100%;
-}
-
-.sidebar {
-  width: 300px;
-  background-color: #0d0d0d;
-  padding: 40px 20px;
-  text-align: center;
-  position: fixed;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.main-content {
-  flex: 1;
-  padding: 40px;
-  margin-left: 300px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 header {
-  padding: 0;
+  padding: 3rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .profile-pic-container {
@@ -52,11 +27,11 @@ header {
 }
 
 .profile-pic {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: none;
+  border: 3px solid #333;
 }
 
 .header-text {
@@ -65,67 +40,84 @@ header {
 
 h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .title {
-  font-size: 0.9rem;
-  margin: 0.5rem 0 1.5rem;
-  color: #999;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: #b0b0b0;
   font-weight: 400;
-  max-width: 260px;
 }
 
-/* Navigation styling */
+/* Navigation bar */
+.navbar {
+  background-color: #222;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: none; /* Removed the white/gray bottom border */
+  padding: 0.75rem 0;
+  margin-bottom: 2rem;
+}
+
 nav {
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-nav a {
-  color: #999;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 0.6rem 0;
+/* remove the underline on your nav tabs - all states */
+nav a,
+nav a:hover,
+nav a.active {
+  text-decoration: none !important; /* explicitly disable any underline with !important */
+  font-size: 0.95rem;
+  padding: 0.4rem 0;
   font-weight: 500;
-  border-bottom: none;
-  transition: color 0.2s;
 }
 
-nav a:hover, nav a.active {
+/* Default state for nav links */
+nav a {
+  color: #b0b0b0;
+  transition: color 0.2s, border-bottom 0.2s;
+  border-bottom: 2px solid transparent;
+}
+
+/* Hover and active states - only add the styling that should change */
+nav a:hover,
+nav a.active {
   color: #fff;
-  text-decoration: none;
-  border-bottom: none;
+  border-bottom: 2px solid #4d9fff;
 }
 
-/* Section styling */
 section {
   padding: 2rem 0;
-  margin: 0 0 2rem;
-  max-width: 800px;
+  max-width: 900px;
+  margin: 1rem auto 3rem;
 }
 
 h2 {
-  font-size: 1.8rem;
-  border-bottom: none;
+  font-size: 1.5rem;
+  border-bottom: none; /* Removed the white underline */
   padding-bottom: 0.5rem;
-  margin-top: 0;
+  margin-top: 2rem;
   margin-bottom: 1.5rem;
-  font-weight: 700;
-}
-
-.section-content {
-  margin-bottom: 2rem;
+  font-weight: 600;
 }
 
 /* Remove all underlines from headings */
 h1, h2, h3, h4, h5, h6 {
-  border-bottom: none !important;
+  border-bottom: none !important; /* Using !important to override any other styles */
   text-decoration: none !important;
+}
+
+.section-content {
+  margin-bottom: 2rem;
 }
 
 /* Publications styling */
@@ -163,7 +155,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Experience and Education */
 .experience-item, .education-item {
   margin-bottom: 2rem;
-  display: flex;
 }
 
 .experience-item h3, .education-item h3 {
@@ -178,15 +169,25 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
 }
 
+ul {
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+  list-style-type: square;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
 /* Projects */
 .project-item {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.8rem;
 }
 
 .project-item h3 {
   margin-bottom: 0.3rem;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 /* Contact links */
@@ -194,12 +195,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: auto;
-  padding-top: 2rem;
+  margin-top: 1rem;
 }
 
 .contact-links a {
-  color: #777;
+  color: #b0b0b0;
   transition: color 0.2s;
   font-size: 1.2rem;
 }
@@ -209,12 +209,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 footer {
-  background: transparent;
+  background: #222;
   text-align: center;
   padding: 1.5rem;
-  margin-top: 2rem;
-  color: #666;
-  font-size: 0.8rem;
+  margin-top: 3rem;
+  color: #999;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
 }
 
 a {
@@ -228,12 +229,12 @@ a:hover {
 
 /* Research interests styling */
 .research-interests {
-  margin: 1.5rem 0 2rem;
+  margin: 1rem 0 2rem;
 }
 
 .research-interests h3 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
   font-weight: 500;
 }
 
@@ -245,9 +246,9 @@ a:hover {
 }
 
 .interest-tag {
-  background: #1a1a1a;
-  padding: 0.4rem 0.9rem;
-  border-radius: 20px;
+  background: #2a2a2a;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
   font-size: 0.9rem;
   display: inline-block;
 }
@@ -255,18 +256,18 @@ a:hover {
 /* CV button */
 .cv-button {
   display: inline-block;
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 0.6rem 1.2rem;
-  background: #1a1a1a;
+  background: #2a2a2a;
   color: #fff;
   border-radius: 4px;
-  border: 1px solid #333;
+  border: 1px solid #444;
   transition: all 0.2s;
   font-weight: 500;
 }
 
 .cv-button:hover {
-  background: #252525;
+  background: #333;
   text-decoration: none;
 }
 
@@ -297,83 +298,45 @@ a:hover {
   margin-bottom: 0.8rem;
 }
 
-/* Stats boxes */
-.stats-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  position: absolute;
-  right: 40px;
-  top: 40px;
-}
-
-.stat-box {
-  background-color: #1a1a1a;
-  border-radius: 4px;
-  padding: 15px;
-  width: 90px;
-  text-align: center;
-}
-
-.stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: #999;
-  text-transform: uppercase;
-}
-
 /* Responsive design */
-@media (max-width: 1024px) {
-  .page-layout {
-    flex-direction: column;
-  }
-  
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    padding: 20px;
-  }
-  
-  .main-content {
-    margin-left: 0;
-  }
-  
-  .stats-container {
-    position: relative;
-    right: auto;
-    top: auto;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-}
-
 @media (max-width: 768px) {
-  .main-content {
-    padding: 20px;
-  }
-  
-  .sidebar {
-    padding: 20px 10px;
-  }
-  
-  h1 {
-    font-size: 1.8rem;
-  }
-  
-  h2 {
-    font-size: 1.6rem;
+  header {
+    padding: 2rem 1rem 1.5rem;
   }
   
   .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+  }
+  
+  section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .contact-links {
+    gap: 1rem;
+  }
+  
+  .news-item {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  
+  .news-date {
+    min-width: auto;
   }
 }
