@@ -577,11 +577,14 @@ function createExperienceSection() {
         collapsibleHeader.innerHTML = `<h3>Previous Experience</h3><span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>`;
         const collapseContent = document.createElement("div");
         collapseContent.className = "collapse-content";
-        experiences.slice(2).forEach((exp) => {
+        // Add older experiences to the collapsible content
+        experiences.slice(2).forEach(exp => {
             createExperienceItem(collapseContent, exp, true);
         });
-        collapsibleHeader.addEventListener("click", () => {
+        // Add click event directly here
+        collapsibleHeader.addEventListener("click", function () {
             olderExperiencesContainer.classList.toggle("active");
+            console.log("Toggled active class:", olderExperiencesContainer.classList.contains("active"));
         });
         olderExperiencesContainer.appendChild(collapsibleHeader);
         olderExperiencesContainer.appendChild(collapseContent);
