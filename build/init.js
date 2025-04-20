@@ -263,6 +263,12 @@ function createHeroSection() {
     heroSection.className = "hero-section";
     const heroContent = document.createElement("div");
     heroContent.className = "hero-content";
+    /* Add the picture to the hero section */
+    const heroPic = document.createElement("img");
+    heroPic.src = profilePicUrl;
+    heroPic.alt = "Duarte Leão";
+    heroPic.className = "hero-pic";
+    heroContent.appendChild(heroPic);
     const heroTitle = document.createElement("h1");
     heroTitle.className = "hero-title";
     heroTitle.textContent = "Duarte Leão";
@@ -283,6 +289,9 @@ function createHeroSection() {
         a.appendChild(i);
         contactDiv.appendChild(a);
     });
+    heroContent.appendChild(heroTitle);
+    heroContent.appendChild(heroSubtitle);
+    heroContent.appendChild(contactDiv);
     const scrollIndicator = document.createElement("div");
     scrollIndicator.className = "scroll-indicator";
     scrollIndicator.innerHTML = '<i class="fas fa-chevron-down"></i>';
@@ -290,9 +299,6 @@ function createHeroSection() {
         var _a;
         (_a = document.getElementById("about")) === null || _a === void 0 ? void 0 : _a.scrollIntoView({ behavior: "smooth" });
     });
-    heroContent.appendChild(heroTitle);
-    heroContent.appendChild(heroSubtitle);
-    heroContent.appendChild(contactDiv);
     heroSection.appendChild(heroContent);
     heroSection.appendChild(scrollIndicator);
     return heroSection;
@@ -781,8 +787,8 @@ function init() {
     rootElement.appendChild(createHeroSection());
     // Create a wrapper div for the rest of the content without the margin hack
     const contentWrapper = document.createElement("div");
-    // Add the original header with profile image
-    contentWrapper.appendChild(createHeader());
+    // Skip the header - removing the duplicate content
+    // contentWrapper.appendChild(createHeader());
     contentWrapper.appendChild(createNavbar());
     contentWrapper.appendChild(createAboutSection());
     contentWrapper.appendChild(createPublicationsSection());

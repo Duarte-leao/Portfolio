@@ -120,6 +120,21 @@ section:not(.hero-section) {
   margin: 0 auto;
 }
 
+/* Hero profile picture styles */
+.hero-pic{
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333;
+  box-shadow: 0 5px 15px rgba(0,0,0,.25);
+  margin: 0 auto 1.75rem;
+}
+
+.light-mode .hero-pic{
+  border-color: #e0e0e0;
+}
+
 .hero-title {
   font-size: 3.5rem;
   margin-bottom: 1rem;
