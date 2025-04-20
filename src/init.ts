@@ -464,7 +464,7 @@ function createNavbar() {
     { id: "education", name: "Education" },
     { id: "teaching", name: "Teaching" },
     { id: "contact", name: "Contact" },
-    { id: "cv", name: "CV", external: true, url: "./files/CV.pdf" }, // Add CV as part of the sections array
+    { id: "cv", name: "CV", external: true, url: "./files/CV.pdf" },
   ];
 
   sections.forEach((section) => {
@@ -491,6 +491,10 @@ function createNavbar() {
   });
 
   navbar.appendChild(nav);
+
+  // Add the theme toggle button to the navbar
+  navbar.appendChild(createThemeToggle());
+
   return navbar;
 }
 
@@ -1035,9 +1039,6 @@ function createFooter() {
 function init() {
   const rootElement = document.getElementById("root") as HTMLElement;
   if (!rootElement) return;
-
-  // Add theme toggle button
-  document.body.appendChild(createThemeToggle());
 
   // Add the navbar first, then the hero section
   rootElement.appendChild(createNavbar());

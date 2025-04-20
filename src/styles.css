@@ -179,11 +179,41 @@ section:not(.hero-section) {
   }
 }
 
-/* Theme toggle */
-.theme-toggle {
+/* Navigation bar */
+.navbar {
+  background-color: #222;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: none;
+  padding: 0.75rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  display: flex;           /* NEW - nav + toggle on the same row */
+  align-items: center;
+}
+
+/* make the <nav> block grow and keep its links centered */
+.navbar nav {
+  flex: 1;                 /* takes the available width */
+  display: flex;
+  justify-content: center;  /* links stay centered */
+  gap: 2rem;
+  max-width: none;         /* override the old max-width */
+  margin: 0;
+}
+
+body.light-mode .navbar {
+  background-color: #fff;
+}
+
+/* Theme toggle - repositioned inside navbar */
+.navbar .theme-toggle {
+  position: relative;      /* override "fixed" */
+  top: auto; 
+  right: auto;
+  margin: 0 1.5rem 0 0;    /* pushes it away from the very edge */
   z-index: 1000;
   background: transparent;
   border: none;
@@ -200,7 +230,7 @@ section:not(.hero-section) {
   justify-content: center;
 }
 
-.light-mode .theme-toggle {
+.light-mode .navbar .theme-toggle {
   color: #333;
   background-color: rgba(0,0,0,0.05);
 }
@@ -210,75 +240,6 @@ section:not(.hero-section) {
   transform: scale(1.1);
 }
 
-header {
-  padding: 3rem 2rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.profile-pic-container {
-  margin-bottom: 1.5rem;
-}
-
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #333;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.light-mode .profile-pic {
-  border: 3px solid #e0e0e0;
-}
-
-.header-text {
-  max-width: 700px;
-}
-
-h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.title {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-  color: #b0b0b0;
-  font-weight: 400;
-}
-
-/* Navigation bar */
-.navbar {
-  background-color: #222;
-  position: fixed;      /* Changed from sticky to fixed */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;        /* Higher than the hero */
-  border-bottom: none;
-  padding: 0.75rem 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
-}
-
-body.light-mode .navbar {
-  background-color: #fff;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* remove the underline on your nav tabs - all states */
 nav a,
 nav a:hover,
 nav a.active {
