@@ -590,6 +590,19 @@ li {
   color: #fff;
 }
 
+/* ------------- CONTACT ------------- */
+#contact .section-content{
+  /* centre the whole block */
+  margin: 0 auto 3rem;         /* keep the bottom gap you had */
+  max-width: 650px;            /* optional – keeps line‑length readable */
+  text-align: center;          /* centre the text itself */
+}
+
+/* if you ever add more paragraphs just to be safe */
+#contact .section-content p{ 
+  margin: 0; 
+}
+
 footer {
   background: #222;
   text-align: center;
